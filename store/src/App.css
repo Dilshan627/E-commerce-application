@@ -1,0 +1,21 @@
+.nav {
+  background-color: #1e1e1e;
+  height: 50px;
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.nav-item {
+  padding-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: beige;
+  font-size: 20px;
+  margin-right: 2%;
+}
+.nav-item:hover {
+  color: #05bef3;
+}

@@ -1,0 +1,96 @@
+.logo {
+  margin-top: 2px;
+  height: 80%;
+}
+.slider {
+  height: 100vh;
+}
+.slider > img {
+  margin-top: 50px;
+  width: 100%;
+  height: 95%;
+}
+
+.itemContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.home-btn {
+  position: absolute;
+  margin-top: 28%;
+  margin-left: 45%;
+  z-index: 1;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.home-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer {
+  background-color: #333;
+  height: 14vh;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-right: 10px;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #ccc;
+}
