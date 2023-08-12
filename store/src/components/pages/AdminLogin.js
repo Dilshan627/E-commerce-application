@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dashboard from "./AdminDashBoard";
+import { login } from "../request/request";
 import "../css/Admin.css";
 
 const AdminLogin = () => {
@@ -8,13 +9,19 @@ const AdminLogin = () => {
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (username === "admin" && password === "1234") {
-      setIsLoggedIn(true);
-    } else {
+    try {
+      //const success = await login("adc@gmail.com", "1234");
+      const success = await login(username, password);
+      console.log(username, password);
+      if (success) {
+        setIsLoggedIn(true);
+        setError("");
+      }
+    } catch (error) {
       setError("Invalid username or password");
+      console.error("Error during login:", error);
     }
   };
 

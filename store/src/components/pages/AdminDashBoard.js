@@ -1,135 +1,144 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../css/Dashboard.css";
 
-const AdminDashboard = () => {
+const AdminDashBoard = () => {
+  const [data, setData] = useState([]);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [website, setWebsite] = useState("");
-  const [users, setUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  const [items, setItems] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    if (selectedUser) {
-      // Update existing user
-      const updatedUsers = users.map((user) =>
-        user === selectedUser
-          ? { ...user, name, email, phone, address, website }
-          : user
-      );
-      setUsers(updatedUsers);
-    } else {
-      // Add new user
-      const newUser = { name, email, phone, address, website };
-      setUsers([...users, newUser]);
-    }
-
-    // Clear the input fields
-    setName("");
-    setEmail("");
-    setPhone("");
-    setAddress("");
-    setWebsite("");
-    setSelectedUser(null);
+  const fetchData = () => {
+    const url = "http://localhost:8000/products/getItem";
+    axios
+      .get(url)
+      .then((response) => {
+        setItems(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   };
 
-  const handleEdit = (user) => {
-    setSelectedUser(user);
-    setName(user.name);
-    setEmail(user.email);
-    setPhone(user.phone);
-    setAddress(user.address);
-    setWebsite(user.website);
+  const addData = () => {
+    const newItem = {
+      name,
+      brand,
+      category,
+      description,
+      price,
+      image,
+    };
+
+    axios
+      .post("http://localhost:8000/products/add", newItem)
+      .then((response) => {
+        setData([...data, response.data]);
+        setName("");
+        setBrand("");
+        setCategory("");
+        setDescription("");
+        setPrice("");
+        setImage("");
+      })
+      .catch((error) => {
+        console.error("Error adding item:", error);
+      });
+
+    fetchData();
   };
 
-  const handleDelete = (user) => {
-    const updatedUsers = users.filter((u) => u !== user);
-    setUsers(updatedUsers);
+  const deleteData = (id) => {
+    const updatedData = data.filter((item) => item.id !== id);
+    setData(updatedData);
   };
 
   return (
-    <div className="dashboard-container">
-      <div className="manu">
-        <button className="button">Item</button>
-        <button className="button">Income</button>
+    <div>
+      <h2>Admin Dashboard</h2>
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Brand"
+          value={brand}
+          onChange={(e) => setBrand(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <button className="btn" onClick={addData}>
+          Add
+        </button>
       </div>
-      <div className="admin-view">
-        <div>
-          <form className="input-container" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Website"
-              value={website}
-              onChange={(e) => setWebsite(e.target.value)}
-            />
-            <button className="btn" type="submit">
-              {selectedUser ? "Update User" : "Add User"}
-            </button>
-          </form>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Website</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user, index) => (
-                <tr key={index}>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.address}</td>
-                  <td>{user.website}</td>
-                  <td>
-                    <button className="btn" onClick={() => handleEdit(user)}>
-                      Edit
-                    </button>
-                    <button className="btn" onClick={() => handleDelete(user)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            {/* <th>Image</th> */}
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.brand}</td>
+              <td>{item.category}</td>
+              <td>{item.description}</td>
+              <td>{item.price}</td>
+              {/* <td>
+                <img src={item.image} alt={item.name} />
+              </td> */}
+              <td>
+                <button className="btn" clonClick={() => deleteData(item.id)}>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminDashBoard;

@@ -1,20 +1,20 @@
-.dashboard-container {
-  height: 100vh;
-  width: 100vw;
-  margin: 0 auto;
-  /* background-color: #007bff; */
-  display: flex;
-  flex-direction: column;
-}
-
 .manu {
   width: 99%;
   height: 10%;
   background-color: rgb(163, 161, 161);
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
 }
+
+.dashboard-container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .manu > button {
   margin-left: 5px;
 }
@@ -23,15 +23,18 @@
   width: 99%;
   height: 90%;
 }
+
 .input-container {
   display: flex;
   flex-direction: row;
   margin-top: 100px;
   margin-left: 20%;
 }
+
 .input-container > input {
   margin-right: 20px;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;

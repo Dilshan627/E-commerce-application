@@ -13,7 +13,15 @@
 }
 
 .itemView {
-  width: 85vw;
+  /* width: 85vw; */
+  margin-top: 110px;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
+}
+.itemView > div {
+  display: flex;
+  flex-direction: row;
 }
 
 .category-btn {

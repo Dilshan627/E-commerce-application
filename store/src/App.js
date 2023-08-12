@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./components/pages/Home";
 import ItemPage from "./components/pages/Item";
 import Adminlogin from "./components/pages/AdminLogin";
+import Payment from "./components/pages/Payment";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/item" element={<ItemPage />} />
         <Route path="/admin" element={<Adminlogin />} />
+        <Route path="/cart" element={<Payment />} />
       </Routes>
     </div>
   );

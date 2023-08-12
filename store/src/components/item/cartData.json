@@ -1,0 +1,62 @@
+[
+  {
+    "image": "https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5",
+    "name": "Item Name 1",
+    "brand": "fgdfgdfgdf",
+    "category": "dsgdfbbfbf",
+    "price": 1500,
+    "description": " Item description 1"
+  },
+  {
+    "image": "https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5",
+    "name": "Item Name 2",
+    "brand": "fgdfgdfgdf",
+    "category": "dsgdfbbfbf",
+    "price": 2500,
+    "description": " Item description 2"
+  },
+  {
+    "image": "https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5",
+    "name": "Item Name 3",
+    "brand": "fgdfgdfgdf",
+    "category": "dsgdfbbfbf",
+    "price": 3500,
+    "description": " Item description 3"
+  }
+]
+
+// import React from "react";
+// import "../css/Payment.css";
+
+// function Payment() {
+//   const handlePrintLocalStorageData = () => {
+//     const existingCartData = localStorage.getItem("cartData");
+//     if (existingCartData) {
+//       const cartData = JSON.parse(existingCartData);
+
+//       for (let i = 0; i < localStorage.length; i++) {
+//         const key = localStorage.key(i);
+//         const data = localStorage.getItem(key);
+//         //        console.log(cartData[i].name);
+//         console.log(`Item with key "${key}":`, data);
+//       }
+//     } else {
+//       console.log("No data found in localStorage");
+//     }
+//   };
+
+//   const clearAllDataFromLocalStorage = () => {
+//     localStorage.clear();
+//   };
+
+//   return (
+//     <div className="payment-container">
+//       <div>
+//         <button onClick={handlePrintLocalStorageData}>get data</button>
+//         <button onClick={clearAllDataFromLocalStorage}>clear</button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Payment;

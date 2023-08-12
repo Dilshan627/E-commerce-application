@@ -2,11 +2,9 @@ const Product = require("../models/Product");
 
 exports.createProduct = async (req, res) => {
   try {
-    const { code, name, brand, category, description, price } = req.body;
-    const image = req.file.filename;
+    const { name, brand, category, description, price, image } = req.body;
 
     const product = new Product({
-      code,
       name,
       brand,
       category,
